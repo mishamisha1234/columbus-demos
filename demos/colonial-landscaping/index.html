@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AI receptionist demo for Colonial Landscaping</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>What a quote request to Colonial Landscaping looks like with an AI receptionist</h1>
+<p class="facts">3.9 stars from 20 Google reviews · Hours: Mon-Fri 8 AM to 5 PM · Based in Columbus, OH</p>
+<div class="phone" aria-label="Example text conversation">
+<div class="bar">Colonial Landscaping</div>
+<div class="thread">
+<p class="sys">Text received · Tue 6:48 PM</p>
+<p class="msg cust">Hi, I would like a quote for a fall cleanup and fresh mulch in my beds.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Thanks for texting Colonial Landscaping. I can set up an estimate visit. What is the property address?</p>
+<p class="msg cust">1420 Maple Ave, Columbus 43214.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Thanks. Roughly how big is the yard, and is this a one time job or regular service?</p>
+<p class="msg cust">About a quarter acre. One time cleanup now, maybe weekly mowing in spring. Can you also trim the hedges along the fence?</p>
+<p class="msg ai"><span class="who">AI receptionist</span>That helps. I will add the hedges to the estimate so the team can look at them in person. I can send someone out Wednesday at 9 AM for an estimate. Does that work?</p>
+<p class="msg cust">Wednesday works.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Booked. An estimate visit is set for Wednesday at 9 AM at 1420 Maple Ave. We will text before arriving.</p>
+</div>
+</div>
+<p class="note">Example conversation. The customer and address are made up.</p>
+<div class="notify"><span class="nlabel">Text to the owner</span>New job booked — Fall cleanup and mulch estimate, 1420 Maple Ave, Wednesday 9 AM. Customer: (614) 555-0142</div>
+<h2>Ask it something a customer would ask</h2>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="a0">What areas do you cover?</button><p class="ans" id="a0" hidden>We are based in Columbus, Ohio. Send us your address and we will confirm we can get to you.</p><button type="button" aria-expanded="false" aria-controls="a1">Can someone come Saturday?</button><p class="ans" id="a1" hidden>We are closed on Saturday. Our next opening is Monday at 8 AM, and I can book that for you now.</p><button type="button" aria-expanded="false" aria-controls="a2">How soon can you come out for an estimate?</button><p class="ans" id="a2" hidden>Our next estimate slot is Wednesday at 9 AM. Reply with your address and I will hold it.</p><button type="button" aria-expanded="false" aria-controls="a3">Do you do more than one kind of yard work?</button><p class="ans" id="a3" hidden>Our listing shows landscaping, gutter cleaning, lawn care and snow removal. Tell us what you have in mind and we will say what fits.</p></div>
+<section class="runs">
+<h2>This runs on your existing phone number. Nothing to install.</h2>
+<ul>
+<li>Missed calls get a text back in 30 seconds</li>
+<li>Answers questions from your Google listing</li>
+<li>Books jobs into your calendar</li>
+</ul>
+</section>
+<a class="cta" href="mailto:mishabichashvili1998@gmail.com?subject=demo%20for%20Colonial%20Landscaping">See it work for Colonial Landscaping</a>
+</main>
+<footer>Demo built from public Google listing data. Not affiliated with Colonial Landscaping.</footer>
+<script>
+document.querySelectorAll(".qa button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var a = document.getElementById(b.getAttribute("aria-controls"));
+    var open = a.hidden;
+    document.querySelectorAll(".qa .ans").forEach(function (x) { x.hidden = true; });
+    document.querySelectorAll(".qa button").forEach(function (x) { x.setAttribute("aria-expanded", "false"); });
+    a.hidden = !open;
+    b.setAttribute("aria-expanded", String(open));
+  });
+});
+</script>
+</body>
+</html>

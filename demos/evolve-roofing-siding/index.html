@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AI receptionist demo for Evolve Roofing &amp; Siding</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>What a quote request to Evolve Roofing &amp; Siding looks like with an AI receptionist</h1>
+<p class="facts">4.9 stars from 162 Google reviews · Hours: Mon-Fri 8 AM to 5 PM · Based in Reynoldsburg, OH</p>
+<div class="phone" aria-label="Example text conversation">
+<div class="bar">Evolve Roofing &amp; Siding</div>
+<div class="thread">
+<p class="sys">Text received · Tue 9:12 PM</p>
+<p class="msg cust">That storm was rough. I am worried my roof got damaged.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Thanks for texting Evolve Roofing &amp; Siding. I am sorry to hear that. Do you see any active leak or water inside right now?</p>
+<p class="msg cust">No leak, but I see a few shingles in the yard.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Good that it is not leaking. A roof inspection is the next step. Do you need to know anything first?</p>
+<p class="msg cust">Will my insurance company want a report from you?</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Insurers usually want photos and notes on the damage. The team can walk you through that at the inspection, and I will flag it so they come prepared. I can book Wednesday at 9 AM. Does that work?</p>
+<p class="msg cust">Yes, book it. 1420 Maple Ave.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Booked. A roof inspection is set for Wednesday at 9 AM at 1420 Maple Ave. If a leak starts, text us here.</p>
+</div>
+</div>
+<p class="note">Example conversation. The customer and address are made up.</p>
+<div class="notify"><span class="nlabel">Text to the owner</span>New job booked — Storm damage roof inspection, 1420 Maple Ave, Wednesday 9 AM. Customer: (614) 555-0142</div>
+<h2>Ask it something a customer would ask</h2>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="a0">What areas do you cover?</button><p class="ans" id="a0" hidden>We are based in Reynoldsburg, Ohio. Send us your address and we will confirm we can get to you.</p><button type="button" aria-expanded="false" aria-controls="a1">Can someone come Saturday?</button><p class="ans" id="a1" hidden>We are closed on Saturday. Our next opening is Monday at 8 AM, and I can book that for you now.</p><button type="button" aria-expanded="false" aria-controls="a2">How soon can you inspect my roof?</button><p class="ans" id="a2" hidden>Our next inspection slot is Wednesday at 9 AM. Reply with your address and I will hold it.</p><button type="button" aria-expanded="false" aria-controls="a3">What should I do after a storm?</button><p class="ans" id="a3" hidden>Take photos from the ground if it is safe, and text us what you see, such as missing shingles or a leak. We will book an inspection and the team can talk through next steps there.</p></div>
+<section class="runs">
+<h2>This runs on your existing phone number. Nothing to install.</h2>
+<ul>
+<li>Missed calls get a text back in 30 seconds</li>
+<li>Answers questions from your Google listing</li>
+<li>Books jobs into your calendar</li>
+</ul>
+</section>
+<a class="cta" href="mailto:mishabichashvili1998@gmail.com?subject=demo%20for%20Evolve%20Roofing%20%26%20Siding">See it work for Evolve Roofing &amp; Siding</a>
+</main>
+<footer>Demo built from public Google listing data. Not affiliated with Evolve Roofing &amp; Siding.</footer>
+<script>
+document.querySelectorAll(".qa button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var a = document.getElementById(b.getAttribute("aria-controls"));
+    var open = a.hidden;
+    document.querySelectorAll(".qa .ans").forEach(function (x) { x.hidden = true; });
+    document.querySelectorAll(".qa button").forEach(function (x) { x.setAttribute("aria-expanded", "false"); });
+    a.hidden = !open;
+    b.setAttribute("aria-expanded", String(open));
+  });
+});
+</script>
+</body>
+</html>

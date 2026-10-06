@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AI receptionist demo for Hendo Roofing &amp; Repair</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>What a quote request to Hendo Roofing &amp; Repair looks like with an AI receptionist</h1>
+<p class="facts">4.9 stars from 79 Google reviews · Hours: Mon-Fri 7 AM to 7 PM; Sat 8 AM to 2 PM · Based in Columbus, OH</p>
+<div class="phone" aria-label="Example text conversation">
+<div class="bar">Hendo Roofing &amp; Repair</div>
+<div class="thread">
+<p class="sys">Text received · Tue 9:12 PM</p>
+<p class="msg cust">That storm was rough. I am worried my roof got damaged.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Thanks for texting Hendo Roofing &amp; Repair. I am sorry to hear that. Do you see any active leak or water inside right now?</p>
+<p class="msg cust">No leak, but I see a few shingles in the yard.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Good that it is not leaking. A roof inspection is the next step. Do you need to know anything first?</p>
+<p class="msg cust">Will my insurance company want a report from you?</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Insurers usually want photos and notes on the damage. The team can walk you through that at the inspection, and I will flag it so they come prepared. I can book Wednesday at 8 AM. Does that work?</p>
+<p class="msg cust">Yes, book it. 1420 Maple Ave.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Booked. A roof inspection is set for Wednesday at 8 AM at 1420 Maple Ave. If a leak starts, text us here.</p>
+</div>
+</div>
+<p class="note">Example conversation. The customer and address are made up.</p>
+<div class="notify"><span class="nlabel">Text to the owner</span>New job booked — Storm damage roof inspection, 1420 Maple Ave, Wednesday 8 AM. Customer: (614) 555-0142</div>
+<h2>Ask it something a customer would ask</h2>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="a0">What areas do you cover?</button><p class="ans" id="a0" hidden>We are based in Columbus, Ohio. Send us your address and we will confirm we can get to you.</p><button type="button" aria-expanded="false" aria-controls="a1">Can someone come Saturday?</button><p class="ans" id="a1" hidden>Yes, we are open Saturday, 8 AM to 2 PM. Share your address and we will find you a slot.</p><button type="button" aria-expanded="false" aria-controls="a2">How soon can you inspect my roof?</button><p class="ans" id="a2" hidden>Our next inspection slot is Wednesday at 8 AM. Reply with your address and I will hold it.</p><button type="button" aria-expanded="false" aria-controls="a3">What should I do after a storm?</button><p class="ans" id="a3" hidden>Take photos from the ground if it is safe, and text us what you see, such as missing shingles or a leak. We will book an inspection and the team can talk through next steps there.</p></div>
+<section class="runs">
+<h2>This runs on your existing phone number. Nothing to install.</h2>
+<ul>
+<li>Missed calls get a text back in 30 seconds</li>
+<li>Answers questions from your Google listing</li>
+<li>Books jobs into your calendar</li>
+</ul>
+</section>
+<a class="cta" href="mailto:mishabichashvili1998@gmail.com?subject=demo%20for%20Hendo%20Roofing%20%26%20Repair">See it work for Hendo Roofing &amp; Repair</a>
+</main>
+<footer>Demo built from public Google listing data. Not affiliated with Hendo Roofing &amp; Repair.</footer>
+<script>
+document.querySelectorAll(".qa button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var a = document.getElementById(b.getAttribute("aria-controls"));
+    var open = a.hidden;
+    document.querySelectorAll(".qa .ans").forEach(function (x) { x.hidden = true; });
+    document.querySelectorAll(".qa button").forEach(function (x) { x.setAttribute("aria-expanded", "false"); });
+    a.hidden = !open;
+    b.setAttribute("aria-expanded", String(open));
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AI receptionist demo for Ohio Handyman</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>What a missed call to Ohio Handyman looks like with an AI receptionist</h1>
+<p class="facts">4.0 stars from 29 Google reviews · Hours: Every day 7 AM to 7 PM · Based in Hilliard, OH</p>
+<div class="phone" aria-label="Example text conversation">
+<div class="bar">Ohio Handyman</div>
+<div class="thread">
+<p class="sys">Missed call from (614) 555-0142 · Tue 9:12 PM</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Hi, this is Ohio Handyman. Sorry we missed your call. We are closed for the night, but I can help right now. What is going on?</p>
+<p class="msg cust">I have a few small repairs around the house that I keep putting off.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Happy to help with that. What is on the list?</p>
+<p class="msg cust">A leaky faucet and a sticking door. Tomorrow morning would be best.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Our next opening is Wednesday at 8 AM. Want me to hold it? I just need your address.</p>
+<p class="msg cust">Yes please. 1420 Maple Ave, Columbus 43214.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>You are booked for Wednesday at 8 AM at 1420 Maple Ave. We will text when we are on the way.</p>
+</div>
+</div>
+<p class="note">Example conversation. The customer and address are made up.</p>
+<div class="notify"><span class="nlabel">Text to the owner</span>New job booked — Faucet repair and sticking door, 1420 Maple Ave, Wednesday 8 AM. Customer: (614) 555-0142</div>
+<h2>Ask it something a customer would ask</h2>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="a0">What areas do you cover?</button><p class="ans" id="a0" hidden>We are based in Hilliard, Ohio. Send us your address and we will confirm we can get to you.</p><button type="button" aria-expanded="false" aria-controls="a1">Can someone come Saturday?</button><p class="ans" id="a1" hidden>Yes, we are open Saturday, 7 AM to 7 PM. Share your address and we will find you a slot.</p><button type="button" aria-expanded="false" aria-controls="a2">How soon can you get here?</button><p class="ans" id="a2" hidden>Our next available slot is Wednesday at 8 AM. Reply with your address and I will hold it.</p><button type="button" aria-expanded="false" aria-controls="a3">What kind of jobs do you take on?</button><p class="ans" id="a3" hidden>We take on repairs and small home projects, and our listing also shows carpet installer, cleaning, electrical work, painting and tile. Send us your list and we will tell you what fits.</p></div>
+<section class="runs">
+<h2>This runs on your existing phone number. Nothing to install.</h2>
+<ul>
+<li>Missed calls get a text back in 30 seconds</li>
+<li>Answers questions from your Google listing</li>
+<li>Books jobs into your calendar</li>
+</ul>
+</section>
+<a class="cta" href="mailto:mishabichashvili1998@gmail.com?subject=demo%20for%20Ohio%20Handyman">See it work for Ohio Handyman</a>
+</main>
+<footer>Demo built from public Google listing data. Not affiliated with Ohio Handyman.</footer>
+<script>
+document.querySelectorAll(".qa button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var a = document.getElementById(b.getAttribute("aria-controls"));
+    var open = a.hidden;
+    document.querySelectorAll(".qa .ans").forEach(function (x) { x.hidden = true; });
+    document.querySelectorAll(".qa button").forEach(function (x) { x.setAttribute("aria-expanded", "false"); });
+    a.hidden = !open;
+    b.setAttribute("aria-expanded", String(open));
+  });
+});
+</script>
+</body>
+</html>

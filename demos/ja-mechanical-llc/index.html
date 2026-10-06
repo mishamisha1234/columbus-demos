@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AI receptionist demo for JA Mechanical LLC</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>What a missed call to JA Mechanical LLC looks like with an AI receptionist</h1>
+<p class="facts">5.0 stars from 99 Google reviews · Hours: Every day 24 hours · Based in Columbus, OH</p>
+<div class="phone" aria-label="Example text conversation">
+<div class="bar">JA Mechanical LLC</div>
+<div class="thread">
+<p class="sys">Missed call from (614) 555-0142 · Tue 1:20 PM</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Hi, this is JA Mechanical LLC. Sorry we missed your call. The team is out on a job, but I can help right now. What is going on?</p>
+<p class="msg cust">I have a leak under my kitchen sink and the cabinet floor is getting wet.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Thanks, that is something we can look at. Is water still running right now?</p>
+<p class="msg cust">It is slow, I shut the valve off. Tomorrow morning would be best.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>Our next opening is Wednesday at 1 AM. Want me to hold it? I just need your address.</p>
+<p class="msg cust">Yes please. 1420 Maple Ave, Columbus 43214.</p>
+<p class="msg ai"><span class="who">AI receptionist</span>You are booked for Wednesday at 1 AM at 1420 Maple Ave. We will text when we are on the way.</p>
+</div>
+</div>
+<p class="note">Example conversation. The customer and address are made up.</p>
+<div class="notify"><span class="nlabel">Text to the owner</span>New job booked — Leak under kitchen sink, 1420 Maple Ave, Wednesday 1 AM. Customer: (614) 555-0142</div>
+<h2>Ask it something a customer would ask</h2>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="a0">What areas do you cover?</button><p class="ans" id="a0" hidden>We are based in Columbus, Ohio. Send us your address and we will confirm we can get to you.</p><button type="button" aria-expanded="false" aria-controls="a1">Can someone come Saturday?</button><p class="ans" id="a1" hidden>Yes, we are open Saturday. Share your address and we will find you a slot.</p><button type="button" aria-expanded="false" aria-controls="a2">How soon can you get here?</button><p class="ans" id="a2" hidden>Our next available slot is Wednesday at 1 AM. Reply with your address and I will hold it.</p><button type="button" aria-expanded="false" aria-controls="a3">Do you handle leaks and clogged drains?</button><p class="ans" id="a3" hidden>Yes. Leaks, clogs and fixture repairs are common calls for us. Text a short description and a photo if you can.</p></div>
+<section class="runs">
+<h2>This runs on your existing phone number. Nothing to install.</h2>
+<ul>
+<li>Missed calls get a text back in 30 seconds</li>
+<li>Answers questions from your Google listing</li>
+<li>Books jobs into your calendar</li>
+</ul>
+</section>
+<a class="cta" href="mailto:mishabichashvili1998@gmail.com?subject=demo%20for%20JA%20Mechanical%20LLC">See it work for JA Mechanical LLC</a>
+</main>
+<footer>Demo built from public Google listing data. Not affiliated with JA Mechanical LLC.</footer>
+<script>
+document.querySelectorAll(".qa button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var a = document.getElementById(b.getAttribute("aria-controls"));
+    var open = a.hidden;
+    document.querySelectorAll(".qa .ans").forEach(function (x) { x.hidden = true; });
+    document.querySelectorAll(".qa button").forEach(function (x) { x.setAttribute("aria-expanded", "false"); });
+    a.hidden = !open;
+    b.setAttribute("aria-expanded", String(open));
+  });
+});
+</script>
+</body>
+</html>

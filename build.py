@@ -17,6 +17,7 @@ MISSED_CALL = ("HVAC contractor", "Plumber", "handyman")
 
 
 # ---------- listing data helpers ----------
+SLUG_OVERRIDE = {"legacy-cooling": "legacy-heating", "a-job": "job-well-done"}
 SLUG_DROP = {"llc", "inc", "heating", "services", "co", "the", "and"}
 
 
@@ -44,7 +45,7 @@ def make_slugs(names):
     for n in names:
         sl = out[n]
         seen[sl] = seen.get(sl, 0) + 1
-        final[n] = sl if seen[sl] == 1 else f"{sl}-{seen[sl]}"
+        final[n] = SLUG_OVERRIDE.get(sl, sl) if seen[sl] == 1 else f"{sl}-{seen[sl]}"
     return final
 
 

@@ -17,8 +17,35 @@ MISSED_CALL = ("HVAC contractor", "Plumber", "handyman")
 
 
 # ---------- listing data helpers ----------
-def slugify(name):
-    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", name.lower())).strip("-")
+SLUG_DROP = {"llc", "inc", "heating", "services", "co", "the", "and"}
+
+
+def slug_words(name):
+    words = []
+    for tok in name.lower().replace("'", "").replace("’", "").split():
+        w = re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", tok)).strip("-")
+        if w and w not in SLUG_DROP:
+            words.append(w)
+    return words or [re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")]
+
+
+def make_slugs(names):
+    """First two meaningful words; colliding groups get a third word, then a numeric suffix."""
+    words = {n: slug_words(n) for n in names}
+    out = {n: "-".join(w[:2]) for n, w in words.items()}
+    for k in (3, 4):
+        counts = {}
+        for v in out.values():
+            counts[v] = counts.get(v, 0) + 1
+        for n in names:
+            if counts[out[n]] > 1:
+                out[n] = "-".join(words[n][:k])
+    final, seen = {}, {}
+    for n in names:
+        sl = out[n]
+        seen[sl] = seen.get(sl, 0) + 1
+        final[n] = sl if seen[sl] == 1 else f"{sl}-{seen[sl]}"
+    return final
 
 
 def loads(s):
@@ -364,6 +391,7 @@ footer{max-width:560px;margin:0 auto;padding:16px;font-size:.75rem;color:var(--m
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--checked", help="path to columbus_targets_v3_checked.xlsx")
+    ap.add_argument("--urls-out", help="write {name: /slug/} JSON here")
     ap.add_argument("--samples", nargs="*", help="business names; build only these, skip the xlsx")
     a = ap.parse_args()
 
@@ -379,31 +407,30 @@ def main():
     keep = ["name", "working_hours", "about", "description"]
     rows = rows.drop(columns=[c for c in keep[1:] if c in rows.columns]).merge(o[keep], on="name", how="left")
 
-    out = HERE / "demos"
-    if out.exists():
-        shutil.rmtree(out)
-    out.mkdir()
+    for old in (HERE / "demos", HERE / "style.css"):
+        if old.is_dir():
+            shutil.rmtree(old)
+        elif old.exists():
+            old.unlink()
+    for d in HERE.iterdir():  # drop pages from a previous run
+        if d.is_dir() and (d / "index.html").exists() and not d.name.startswith("."):
+            shutil.rmtree(d)
+    out = HERE
     (out / "style.css").write_text(CSS, encoding="utf-8")
-    urls, seen = {}, {}
+    slugs = make_slugs(list(rows["name"]))
+    urls = {}
     for _, r in rows.iterrows():
-        s = slugify(r["name"])
-        seen[s] = seen.get(s, 0) + 1
-        if seen[s] > 1:
-            s = f"{s}-{seen[s]}"
+        s = slugs[r["name"]]
         (out / s).mkdir()
         (out / s / "index.html").write_text(render(r), encoding="utf-8")
-        urls[r["name"]] = f"/demos/{s}/"
+        urls[r["name"]] = f"/{s}/"
     (HERE / "index.html").write_text('<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
                                      '<meta name="robots" content="noindex,nofollow"><title>Columbus demos</title></head><body></body></html>\n',
                                      encoding="utf-8")
     (HERE / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
     print(f"built {len(urls)} pages")
-    if not a.samples:
-        full = pd.read_excel(src)
-        is_send = full["send"].astype(str).str.strip().str.upper() == "YES"
-        full["demo_url"] = full["name"].map(urls).where(is_send)
-        full.to_excel(DL / "columbus_targets_v4.xlsx", index=False)
-        print("wrote columbus_targets_v4.xlsx")
+    if a.urls_out:
+        Path(a.urls_out).write_text(json.dumps(urls, indent=1), encoding="utf-8")
 
 
 if __name__ == "__main__":
